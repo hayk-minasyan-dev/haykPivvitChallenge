@@ -1,0 +1,50 @@
+<div class="col-sm-4 col-sm-offset-4" ng-controller="CreateController" ng-init="init()">
+    <form class="form-horizontal" ng-submit="create()">
+
+        <div class="form-group">
+            <label class="cols-sm-2 control-label">Name</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <select ng-model="offering_id" class="form-control">
+                        <option ng-repeat="(id,offeringObj) in offeringArr" value="{{id}}">
+                            {{offeringObj.title}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="cols-sm-2 control-label">Name</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input ng-model="name"
+                           type="text" class="form-control" name="name" placeholder="Name"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="cols-sm-2 control-label">Quantity</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input ng-model="quantity"
+                           type="text" class="form-control" name="name" placeholder="Quantity"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="offering_id">
+            <div class="cols-sm-10">
+                Total: {{quantity * offeringArr[offering_id].price}}
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Create</button>
+        </div>
+    </form>
+</div>

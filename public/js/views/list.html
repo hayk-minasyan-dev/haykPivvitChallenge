@@ -1,0 +1,20 @@
+<div class="col-sm-4 col-sm-offset-4" ng-controller="ListController" ng-init="init()">
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Unit price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="purchaseObj in purchaseArr">
+            <td>{{purchaseObj.id}}</td>
+            <td>{{purchaseObj.offering.title}}</td>
+            <td>{{purchaseObj.quantity}}</td>
+            <td>{{purchaseObj.offering.price}}</td>
+            <td>{{purchaseObj.offering.price * purchaseObj.quantity}}</td>
+        </tr>
+    </table>
+</div>
